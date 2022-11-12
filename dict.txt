@@ -1,0 +1,17 @@
+user_interface.py - меню с выбором режима и действия.
+- def open_file - Просмотр файла
+- create_file - Создание нового файла
+- change_file - Редактирование файла
+
+model.py -
+- def view_row - метод отображения записи
+- def create_row - метод создания записи
+- def change_row - метод редактирования записи
+- def create_csv - создание нового csv файла
+
+main.py
+
+controller.py -
+- def run - запуск программы
+
+
