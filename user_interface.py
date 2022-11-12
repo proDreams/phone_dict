@@ -6,3 +6,7 @@ def user_choice():
     X - Quit''')
     choice = input(': ')
     return choice
+
+
+def print_output(row):
+    print(row)
