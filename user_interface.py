@@ -20,5 +20,19 @@ def get_row():
 def view_file(name):
     print(f'Просмотр файла {name}')
 
+
 def get_filename():
     return input('Введите название создаваемого файла:\n')
+
+
+def get_id():
+    return input('Введите id для поиска: ')
+
+
+def get_new_data():
+    return input('Введите новые данные:\n').split()
+
+
+def print_found_id(row, cols):
+    print('Найдена строка:')
+    print(*row)

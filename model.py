@@ -26,11 +26,12 @@ def change_row():
     file = open('db.csv', 'r+', newline='', encoding='utf-8')
     reader = csv.reader(file)
     reader = list(reader)
-    id = input('Введите id для поиска: ')
+    id = user_interface.get_id()
     for i in range(len(reader)):
         temp = ''.join(reader[i]).split(';')
         if temp[0] == id:
-            temp = input('Введите новые данные\n').split()
+            user_interface.print_found_id(temp, reader[0])
+            temp = user_interface.get_new_data()
         reader[i] = temp
     file.close()
     file = open('db.csv', 'w+', newline='', encoding='utf-8')
@@ -38,10 +39,8 @@ def change_row():
     file = open('db.csv', 'r+', newline='', encoding='utf-8')
     writer = csv.writer(file, delimiter=';')
     for i in reader:
-        print(i)
         writer.writerow(i)
     file.close()
-
 
 
 def create_csv():
