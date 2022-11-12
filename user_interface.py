@@ -19,3 +19,6 @@ def get_row():
 
 def view_file(name):
     print(f'Просмотр файла {name}')
+
+def get_filename():
+    return input('Введите название создаваемого файла:\n')
