@@ -1,0 +1,8 @@
+def user_choice():
+    print('''Choose a number:
+    1 - Создать файл
+    2 - Просмотр файла
+    3 - Добавить информацию
+    X - Quit''')
+    choice = input(': ')
+    return choice
