@@ -1,3 +1,3 @@
-from user_interface import *
-from controller import *
-from model import *
+import user_interface
+import controller
+import model

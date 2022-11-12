@@ -5,9 +5,17 @@ def user_choice():
     3 - Добавить информацию
     4 - Изменить строку
     X - Quit''')
-    choice = input(': ')
+    choice = input(': ').lower()
     return choice
 
 
 def print_output(row):
     print(row)
+
+
+def get_row():
+    return input('Введите необходимые поля через пробел: ').split()
+
+
+def view_file(name):
+    print(f'Просмотр файла {name}')
