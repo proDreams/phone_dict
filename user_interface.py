@@ -3,6 +3,7 @@ def user_choice():
     1 - Создать файл
     2 - Просмотр файла
     3 - Добавить информацию
+    4 - Изменить строку
     X - Quit''')
     choice = input(': ')
     return choice

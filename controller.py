@@ -1,5 +1,6 @@
 from settings import *
 
+
 # def menu():
 #     while True:
 #         print('''
@@ -26,14 +27,16 @@ from settings import *
 
 def menu(option):
     options = {
-        '1': create_file()
-        '2': show_info()
-        '3': add_info()
+        '1': create_csv(),
+        '2': view_row(),
+        '3': change_row(),
+        '4': create_row(),
         'X': quit()
     }
     return options[option]
+
+
 def run():
     option_choice = user_choice()
     menu(option_choice)
 
-run()
