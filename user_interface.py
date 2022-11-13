@@ -22,8 +22,8 @@ def check_file_error():
           'Попробуйте снова.')
 
 
-def print_output(row):
-    print(row)
+def print_output(el):
+    print(el, end='')
 
 
 def get_row():
@@ -67,14 +67,18 @@ def show_add_row(row):
 def add_row_success(file):
     print(f'Файл {file}.csv успешно обновлён!')
 
+
 def generate_book_success(file):
     print(f'Файл {file} успешно сгенерирован!')
+
 
 def exit_program():
     print('Выход из программы.')
 
+
 def menu_error():
     print('Wrong choice. Try again!')
 
-def new_line()
+
+def new_line():
     print()

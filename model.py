@@ -4,17 +4,36 @@ import random
 
 
 def view_row(file_name):
-    user_interface.view_file('db.csv')
+    """
+    Показывает содержимое файла
+    """
+    user_interface.view_file(f'{file_name}.csv')
     with open(f'{file_name}.csv', 'r', newline='', encoding='utf-8') as file:
         reader = csv.reader(file)
         for i in reader:
-            user_interface.print_output(i)
+            print_row(i)
     controller.menu()
 
 
+def print_row(row):
+    """
+    Красивый вывод строки
+    """
+    for i in row:
+        for j in i.split():
+            if len(j) < 4:
+                user_interface.print_output(j.ljust(5))
+            else:
+                user_interface.print_output(j.ljust(15))
+        user_interface.new_line()
+
+
 def create_row(file_name):
+    """
+    Добавляет запись в файл
+    """
     with open(f'{file_name}.csv', 'a', newline='', encoding='utf-8') as file:
-        writer = csv.writer(file, delimiter=';')
+        writer = csv.writer(file, delimiter=' ')
         temp = user_interface.get_row()
         user_interface.show_add_row(temp)
         writer.writerow(temp)
@@ -23,12 +42,19 @@ def create_row(file_name):
 
 
 def change_row(file_name):
+    """
+    Изменяет запись в файле
+
+    Находим запись по первому столбцу(id)
+    Меняем запись на необходимую
+    После этого заново перезаписываем файл
+    """
     file = open(f'{file_name}.csv', 'r+', newline='', encoding='utf-8')
     reader = csv.reader(file)
     reader = list(reader)
     record_id = user_interface.get_id()
     for i in range(len(reader)):
-        temp = ''.join(reader[i]).split(';')
+        temp = ''.join(reader[i]).split(' ')
         if temp[0] == record_id:
             user_interface.print_found_id(temp, reader[0])
             temp = user_interface.get_new_data()
@@ -39,7 +65,7 @@ def change_row(file_name):
     file = open(f'{file_name}.csv', 'w+', newline='', encoding='utf-8')
     file.close()
     file = open(f'{file_name}.csv', 'r+', newline='', encoding='utf-8')
-    writer = csv.writer(file, delimiter=';')
+    writer = csv.writer(file, delimiter=' ')
     for i in reader:
         writer.writerow(i)
     file.close()
@@ -47,12 +73,19 @@ def change_row(file_name):
 
 
 def delete_row(file_name):
+    """
+    Изменяет запись в файле
+
+    Находим запись по первому столбцу(id)
+    Удаляем строку
+    После этого заново перезаписываем файл
+    """
     file = open(f'{file_name}.csv', 'r+', newline='', encoding='utf-8')
     reader = csv.reader(file)
     reader = list(reader)
     record_id = user_interface.get_delete_id()
     for i in range(len(reader)):
-        temp = ''.join(reader[i]).split(';')
+        temp = ''.join(reader[i]).split(' ')
         if temp[0] == record_id:
             del reader[i]
             break
@@ -60,7 +93,7 @@ def delete_row(file_name):
     file = open(f'{file_name}.csv', 'w+', newline='', encoding='utf-8')
     file.close()
     file = open(f'{file_name}.csv', 'r+', newline='', encoding='utf-8')
-    writer = csv.writer(file, delimiter=';')
+    writer = csv.writer(file, delimiter=' ')
     for i in reader:
         writer.writerow(i)
     file.close()
@@ -68,15 +101,21 @@ def delete_row(file_name):
 
 
 def create_csv():
+    """
+    Создаёт новый файл и записывает в него столбцы таблицы
+    """
     filename = user_interface.get_filename()
     with open(f'{filename}.csv', 'w', newline='', encoding='utf-8') as file:
         fieldnames = ['id', 'first_name', 'last_name', 'birth_date', 'work_place', 'phone_number']
-        writer = csv.DictWriter(file, fieldnames=fieldnames, delimiter=';')
+        writer = csv.DictWriter(file, fieldnames=fieldnames, delimiter=' ')
         writer.writeheader()
     controller.menu()
 
 
 def check_file_exist(file_name):
+    """
+    Проверяет наличие файла по указанному пути
+    """
     try:
         file = open(f'{file_name}.csv', 'r', newline='', encoding='utf-8')
         file.close()
@@ -87,18 +126,24 @@ def check_file_exist(file_name):
 
 
 def generate_phone_book(file_name):
+    """
+    Генерирует телефонный справочник и записывает его в файл
+    """
     generated_list = generate_list()
     with open(f'{file_name}.csv', 'w', newline='', encoding='utf-8') as file:
         field_names = ['id', 'first_name', 'last_name', 'birth_date', 'work_place', 'phone_number']
-        writer = csv.DictWriter(file, fieldnames=field_names, delimiter=';')
+        writer = csv.DictWriter(file, fieldnames=field_names, delimiter=' ')
         writer.writeheader()
-        writer = csv.writer(file, delimiter=';')
+        writer = csv.writer(file, delimiter=' ')
         writer.writerows(generated_list)
     user_interface.generate_book_success(file_name)
     controller.menu()
 
 
 def generate_list():
+    """
+    Генерирует список строк для генератора телефонного справочника
+    """
     how_many = user_interface.quantity_records()
     text = [chr(i) for i in range(65, 123) if chr(i).isalpha()]
     digits = [str(i) for i in range(10)]
