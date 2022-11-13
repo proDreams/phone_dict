@@ -61,10 +61,11 @@ def change_row(file_name):
             user_interface.print_found_id(temp, reader[0])
             temp = user_interface.get_new_data()
             while len(temp) < 6:
-                user_interface.get_new_data()
+                temp = user_interface.get_new_data()
             if len(temp) >= 6:
                 for j in range(1, len(temp) - 5):
-                    reader[0].append(f'Add_num_{j}')
+                    if len(reader[0]) < 6 + j:
+                        reader[0].append(f'Add_num_{j}')
         reader[i] = temp
     file.close()
     file = open(f'{file_name}.csv', 'w+', newline='', encoding='utf-8')
