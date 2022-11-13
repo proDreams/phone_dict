@@ -32,7 +32,29 @@ def change_row(file_name):
         if temp[0] == record_id:
             user_interface.print_found_id(temp, reader[0])
             temp = user_interface.get_new_data()
+            while len(temp) != 6:
+                user_interface.get_new_data()
         reader[i] = temp
+    file.close()
+    file = open(f'{file_name}.csv', 'w+', newline='', encoding='utf-8')
+    file.close()
+    file = open(f'{file_name}.csv', 'r+', newline='', encoding='utf-8')
+    writer = csv.writer(file, delimiter=';')
+    for i in reader:
+        writer.writerow(i)
+    file.close()
+
+
+def delete_row(file_name):
+    file = open(f'{file_name}.csv', 'r+', newline='', encoding='utf-8')
+    reader = csv.reader(file)
+    reader = list(reader)
+    record_id = user_interface.get_delete_id()
+    for i in range(len(reader)):
+        temp = ''.join(reader[i]).split(';')
+        if temp[0] == record_id:
+            del reader[i]
+            break
     file.close()
     file = open(f'{file_name}.csv', 'w+', newline='', encoding='utf-8')
     file.close()

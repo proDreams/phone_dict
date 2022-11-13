@@ -17,6 +17,8 @@ def menu():
             model.create_row(file)
         elif choice == '4':
             model.change_row(file)
+        elif choice == '5':
+            model.delete_row(file)
         elif choice == 'x':
             print('Exit')
             break

@@ -4,6 +4,7 @@ def mode_choice():
     2 - Просмотр файла
     3 - Добавить информацию
     4 - Изменить строку
+    5 - Удалить строку
     X - Quit''')
     return input(': ').lower()
 
@@ -37,6 +38,10 @@ def get_filename():
 
 def get_id():
     return input('Введите id для поиска: ')
+
+
+def get_delete_id():
+    return input('Введите id для удаления: ')
 
 
 def get_new_data():
