@@ -6,6 +6,6 @@
 4. Импорт\экспорт файлов
 
 ### Contributors:
-Ivan Ashikhmin,
+Ivan Kos,
 Nikita Z,
-Ivan Kos
+Ivan Ashikhmin
