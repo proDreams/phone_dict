@@ -5,6 +5,7 @@ def mode_choice():
     3 - Добавить информацию
     4 - Изменить строку
     5 - Удалить строку
+    6 - Сгенерировать справочник
     0 - Вернуться к выбору файла
     X - Quit''')
     return input(': ').lower()
@@ -52,3 +53,28 @@ def get_new_data():
 def print_found_id(row, cols):
     print('Найдена строка:')
     print(*row)
+
+
+def quantity_records():
+    return int(input('Введите количество записей для генерации: '))
+
+
+def show_add_row(row):
+    print(f'Добавлена строка:'
+          f'{row}')
+
+
+def add_row_success(file):
+    print(f'Файл {file}.csv успешно обновлён!')
+
+def generate_book_success(file):
+    print(f'Файл {file} успешно сгенерирован!')
+
+def exit_program():
+    print('Выход из программы.')
+
+def menu_error():
+    print('Wrong choice. Try again!')
+
+def new_line()
+    print()

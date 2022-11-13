@@ -1,5 +1,3 @@
-import model
-import user_interface
 from settings import *
 
 file = ''
@@ -8,7 +6,7 @@ file = ''
 def menu():
     while True:
         choice = user_interface.mode_choice()
-        print()
+        user_interface.new_line()
         if choice == '1':
             model.create_csv()
         elif choice == '2':
@@ -19,14 +17,16 @@ def menu():
             model.change_row(file)
         elif choice == '5':
             model.delete_row(file)
+        elif choice == '6':
+            model.generate_phone_book(file)
         elif choice == '0':
             choice_file()
         elif choice == 'x':
-            print('Exit')
-            break
+            user_interface.exit_program()
+            exit()
         else:
-            print('Wrong choice. Try again!')
-        print()
+            user_interface.menu_error()
+        user_interface.new_line()
 
 
 def choice_file():

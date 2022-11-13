@@ -1,3 +1,11 @@
-"id;first_name;last_name;dob;work_place;phone_number"
-"1;Иван;Иванов;12.12.12;МСК;12346"
-"3;Иван;Иванов;12.12.12;МСК;12346"
+id;first_name;last_name;birth_date;work_place;phone_number
+1;bCGPK;nNguo;14.5.2000;DhMwyHF;+78902374516
+2;vPGmbr;XZoTElRA;26.8.1996;TzmSxAfq;+74869025731
+3;kvjQu;BeADlWJy;26.5.1990;SkMteojghzlR;+74350987126
+4;QkfWGgT;EJvTb;6.5.2001;EIdnvxmQ;+73694275108
+5;rOoqTYLX;OWrgflNx;7.1.1998;hkTQWmBv;+71937528046
+6;TknKwYJu;axYvHEdR;1.5.1994;cOQVTbxU;+73926014758
+7;QqXAHb;KYqwRf;3.2.2001;BfvNabZLg;+76350948721
+8;JgzNx;yEFvM;14.9.2003;gwxOfiFG;+77815394062
+9;UCaHK;PEyaUZ;22.6.1992;sWepcMuJkB;+75608413927
+10;hMDlzOri;wAkzH;11.5.2008;TRKauts;+74536801279
