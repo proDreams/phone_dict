@@ -1,12 +1,22 @@
-def user_choice():
-    print('''Choose a number:
+def mode_choice():
+    print('''Choose a mode:
     1 - Создать файл
     2 - Просмотр файла
     3 - Добавить информацию
     4 - Изменить строку
     X - Quit''')
-    choice = input(': ').lower()
-    return choice
+    return input(': ').lower()
+
+
+def choice_file_prints():
+    return input('- Введите название файла или путь к файлу с данными\n'
+                 '- Наберите "new_file" для создания нового\n'
+                 '- Или нажмите "Enter" для файла по умолчанию.\n')
+
+
+def check_file_error():
+    print('Ошибка открытия файла или пути к файлу\n'
+          'Попробуйте снова.')
 
 
 def print_output(row):

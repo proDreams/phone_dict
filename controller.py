@@ -1,18 +1,22 @@
+import model
+import user_interface
 from settings import *
+
+file = ''
 
 
 def menu():
     while True:
-        choice = user_interface.user_choice()
+        choice = user_interface.mode_choice()
         print()
         if choice == '1':
             model.create_csv()
         elif choice == '2':
-            model.view_row()
+            model.view_row(file)
         elif choice == '3':
-            model.create_row()
+            model.create_row(file)
         elif choice == '4':
-            model.change_row()
+            model.change_row(file)
         elif choice == 'x':
             print('Exit')
             break
@@ -21,5 +25,19 @@ def menu():
         print()
 
 
+def choice_file():
+    global file
+    file = user_interface.choice_file_prints()
+    if file == 'new_file':
+        model.create_csv()
+    elif file == '':
+        file = 'db'
+        menu()
+    elif model.check_file_exist(file):
+        menu()
+    else:
+        choice_file()
+
+
 def run():
-    menu()
+    choice_file()
