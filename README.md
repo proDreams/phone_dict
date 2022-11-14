@@ -7,5 +7,5 @@
 
 ### Contributors:
 Ivan Kos,
-Nikita Z,
+Nikita Zhilenko,
 Ivan Ashikhmin
