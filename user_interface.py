@@ -55,7 +55,7 @@ def get_new_data():
     return input('Введите новые данные:\n').split()
 
 
-def print_found_id(row, cols):
+def print_found_id(row):
     print('Найдена строка:')
     print(*row)
 

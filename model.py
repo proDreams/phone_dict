@@ -59,7 +59,7 @@ def change_row(file_name):
     for i in range(len(reader)):
         temp = ''.join(reader[i]).split(' ')
         if temp[0] == record_id:
-            user_interface.print_found_id(temp, reader[0])
+            user_interface.print_found_id(temp)
             temp = user_interface.get_new_data()
             while len(temp) < 6:
                 temp = user_interface.get_new_data()
