@@ -1,3 +1,6 @@
+"""
+Основной функционал программы
+"""
 from settings import *
 import csv
 import random
@@ -68,6 +71,7 @@ def change_row(file_name):
                         reader[0].append(f'Add_num_{j}')
         reader[i] = temp
     file.close()
+    # Открываем и закрываем файл для очистки содержимого
     file = open(f'{file_name}.csv', 'w+', newline='', encoding='utf-8')
     file.close()
     file = open(f'{file_name}.csv', 'r+', newline='', encoding='utf-8')
