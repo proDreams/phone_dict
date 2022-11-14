@@ -15,7 +15,7 @@ def view_row(file_name):
         reader = csv.reader(file)
         for i in reader:
             print_row(i)
-    controller.menu()
+    return True
 
 
 def print_row(row):
@@ -41,7 +41,7 @@ def create_row(file_name):
         user_interface.show_add_row(temp)
         writer.writerow(temp)
     user_interface.add_row_success(file_name)
-    controller.menu()
+    return True
 
 
 def change_row(file_name):
@@ -79,7 +79,7 @@ def change_row(file_name):
     for i in reader:
         writer.writerow(i)
     file.close()
-    controller.menu()
+    return True
 
 
 def delete_row(file_name):
@@ -107,7 +107,7 @@ def delete_row(file_name):
     for i in reader:
         writer.writerow(i)
     file.close()
-    controller.menu()
+    return True
 
 
 def create_csv():
@@ -119,7 +119,7 @@ def create_csv():
         fieldnames = ['id', 'first_name', 'last_name', 'birth_date', 'work_place', 'phone_number']
         writer = csv.DictWriter(file, fieldnames=fieldnames, delimiter=' ')
         writer.writeheader()
-    controller.menu()
+    return True
 
 
 def check_file_exist(file_name):
@@ -147,7 +147,7 @@ def generate_phone_book(file_name):
         writer = csv.writer(file, delimiter=' ')
         writer.writerows(generated_list)
     user_interface.generate_book_success(file_name)
-    controller.menu()
+    return True
 
 
 def generate_list():
