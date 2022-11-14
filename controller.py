@@ -5,7 +5,8 @@ file = ''
 
 
 def menu():
-    while True:
+    flag = True
+    while flag:
         choice = user_interface.mode_choice()
         user_interface.new_line()
         if choice == '1':
@@ -24,7 +25,7 @@ def menu():
             choice_file()
         elif choice == 'x':
             user_interface.exit_program()
-            break
+            flag = False
         else:
             user_interface.menu_error()
         user_interface.new_line()
