@@ -25,7 +25,7 @@ def menu():
             choice_file()
         elif choice == 'x':
             user_interface.exit_program()
-            sys.exit()
+           flag = False
         else:
             user_interface.menu_error()
         user_interface.new_line()
