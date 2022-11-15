@@ -52,10 +52,11 @@ def change_row(file_name):
     что это дополнительные номера телефонов и добавляем соответствующие столбцы.
     После этого заново перезаписываем файл
     """
-    file = open(f'{file_name}.csv', 'r+', newline='', encoding='utf-8')
-    reader = csv.reader(file)
-    reader = list(reader)
+    file = open(f'{file_name}.csv', 'r', newline='', encoding='utf-8')
+    reader = list(csv.reader(file))
     record_id = user_interface.get_id()
+    new_file = open(f'{file_name}.csv', 'r+', newline='', encoding='utf-8')
+    writer = csv.writer(new_file, delimiter=' ')
     for i in range(len(reader)):
         temp = ''.join(reader[i]).split(' ')
         if temp[0] == record_id:
@@ -68,15 +69,9 @@ def change_row(file_name):
                     if len(reader[0]) < 6 + j:
                         reader[0].append(f'Add_num_{j}')
         reader[i] = temp
+        writer.writerow(reader[i])
     file.close()
-    # Открываем и закрываем файл для очистки содержимого
-    file = open(f'{file_name}.csv', 'w+', newline='', encoding='utf-8')
-    file.close()
-    file = open(f'{file_name}.csv', 'r+', newline='', encoding='utf-8')
-    writer = csv.writer(file, delimiter=' ')
-    for i in reader:
-        writer.writerow(i)
-    file.close()
+    new_file.close()
 
 
 def delete_row(file_name):
